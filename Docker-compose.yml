@@ -4,7 +4,7 @@ services:
     image: grafana/grafana:5.1.0
     container_name: grafana
     environment:
-      - GF_SERVER_ROOT_URL=http://192.168.99.101
+      - GF_SERVER_ROOT_URL=http://192.168.99.101:3000
       - GF_SECURITY_ADMIN_PASSWORD=123456
       - TS="America/Bahia"
     ports:
