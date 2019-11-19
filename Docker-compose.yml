@@ -9,4 +9,4 @@ services:
     ports:
       - 3000:3000
     user: "104"
-    TS: "America\Bahia"
+    TS: "America/Bahia"
