@@ -10,4 +10,38 @@ services:
     ports:
       - 3000:3000
     user: "104"
-    
+  mysql:
+    container_name: mysqlcontainer
+    image: mysql:5.7
+    ports: 
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: fiapdb
+      MYSQL_USER: fiap
+      MYSQL_PASSWORD: 123456
+      TZ: "America/Bahia"
+  nginx:
+    container_name: nginxFIAP
+    image: nginx:latest
+    ports: 
+      - 85:80
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+ 
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
